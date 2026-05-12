@@ -1,0 +1,52 @@
+.student-love {
+  background-color: #f8fafc;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.student-love h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 280px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.testimonial-card p {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-card .student-grade {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.athletes {
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.student-love { background: #f8fafc; padding: 4rem 0; text-align: center; }
+.student-love h2 { font-size: 2rem; font-weight: 700; margin-bottom: 2rem; }
+.testimonial-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+.testimonial-card { background: white; padding: 1.5rem; border-radius: 1rem; width: 280px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.testimonial-card p { font-style: italic; }
+.student-grade { font-weight: 600; margin-top: 0.5rem; }
+.athletes { margin-top: 2rem; font-weight: 600; }
+.student-love { padding: 2rem 0; }
+.testimonial-card { width: 100%; max-width: 280px; margin: 0 auto; }

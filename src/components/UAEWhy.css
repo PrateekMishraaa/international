@@ -1,0 +1,26 @@
+.why-uae {
+  padding: 4rem 0;
+  background-color: white;
+}
+.why-uae h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.reason {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.reason h3 {
+  color: #077ffb;
+  margin-bottom: 0.5rem;
+}

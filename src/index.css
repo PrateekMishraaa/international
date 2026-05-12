@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: system-ui, -apple-system, 'Inter', sans-serif;
+  background-color: #ffffff;
+    font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  color: #1e293b;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.university-logos span:nth-child(n+5) {
+  display: none;
+}
+@media (min-width: 640px) {
+  .university-logos span {
+    display: inline-block;
+  }
+}
+.page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  color: #077ffb;
+  background: #f8fafc;
+}
+@media (max-width: 640px) {
+  .university-logos span:nth-child(n+5) {
+    display: none;
+  }
+}

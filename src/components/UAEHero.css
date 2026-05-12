@@ -1,0 +1,25 @@
+.uae-hero {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
+  padding: 8rem 0 4rem;
+  text-align: center;
+  margin-top: 0; /* navbar fixed, so no extra margin needed */
+}
+.uae-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.uae-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.uae-stats strong {
+  font-size: 2rem;
+  display: block;
+}
+@media (max-width: 768px) {
+  .uae-hero h1 { font-size: 1.75rem; }
+  .uae-stats { flex-direction: column; align-items: center; gap: 1rem; }
+}
