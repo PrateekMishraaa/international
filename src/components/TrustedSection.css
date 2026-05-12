@@ -1,3 +1,21 @@
-.trusted-section { padding: 4rem 0; background-color: #f8fafc; text-align: center; }
-.trusted-section h2 { font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem; }
-.trusted-section p { max-width: 900px; margin: 0 auto; color: #334155; line-height: 1.6; }
+.trusted-section {
+  padding: 4rem 0;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+.trusted-section h2 {
+  font-size: 1.875rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff, #a0c0ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+}
+.trusted-section p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
+}

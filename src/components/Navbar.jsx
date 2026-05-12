@@ -20,11 +20,10 @@ const Navbar = () => {
           
 <img
   src="/logo.webp"
-  srcSet=""
-  sizes=""
-  width="140"
-  height="40"
-  alt="Logo"
+  alt="International Schooling"
+  width="200"
+  height="56"
+  style={{ filter: 'brightness(0) invert(1)' }}
   loading="eager"
   fetchpriority="high"
 />    </a>

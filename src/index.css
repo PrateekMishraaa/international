@@ -1,18 +1,31 @@
+/* Global reset + dark theme with white text */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #0f0f2a;
+  --bg-card: rgba(20, 20, 45, 0.7);
+  --bg-glass: rgba(30, 30, 60, 0.4);
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0ff;
+  --text-muted: #b0b0d0;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.3);
+  --border: rgba(255,255,255,0.1);
+  --gradient-hero: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  --gradient-card: linear-gradient(135deg, rgba(20,20,45,0.9), rgba(10,10,30,0.9));
+}
 
 body {
-  font-family: system-ui, -apple-system, 'Inter', sans-serif;
-  background-color: #ffffff;
-    font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif;
-  color: #1e293b;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -20,10 +33,9 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
-
 @media (min-width: 768px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
 }
 
@@ -33,35 +45,30 @@ img {
   display: block;
 }
 
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.university-logos span:nth-child(n+5) {
-  display: none;
-}
-@media (min-width: 640px) {
-  .university-logos span {
-    display: inline-block;
+/* Subtle fade-in animation (no performance hit) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-.page-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  font-family: system-ui, sans-serif;
-  color: #077ffb;
-  background: #f8fafc;
+
+.logo, .hero-badge, .hero h1, .hero-sub, .hero-accred, 
+.btn-enroll, .stat-item, .plan-card, .testimonial-card, .reason {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
 }
-@media (max-width: 640px) {
-  .university-logos span:nth-child(n+5) {
-    display: none;
-  }
-}
+
+.hero-badge { animation-delay: 0.05s; }
+.hero h1 { animation-delay: 0.1s; }
+.hero-sub { animation-delay: 0.15s; }
+.hero-accred { animation-delay: 0.2s; }
+.btn-enroll { animation-delay: 0.25s; }
+.stat-item:nth-child(1) { animation-delay: 0.3s; }
+.stat-item:nth-child(2) { animation-delay: 0.35s; }
+.stat-item:nth-child(3) { animation-delay: 0.4s; }
+.stat-item:nth-child(4) { animation-delay: 0.45s; }

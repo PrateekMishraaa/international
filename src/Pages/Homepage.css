@@ -425,3 +425,27 @@ html {
     max-width: 1200px;
   }
 }
+.homepage {
+  overflow-x: hidden;
+}
+.loading-skeleton {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+.trusted-section,
+.graduation,
+.comparison-table,
+.learning-plans,
+.student-love,
+.parent-trust,
+.testimonials,
+.faq-section,
+.news-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
