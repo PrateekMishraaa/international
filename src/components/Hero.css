@@ -1,87 +1,68 @@
 .hero {
   padding-top: 6rem;
   padding-bottom: 3rem;
-  background: var(--gradient-hero);
+  background: linear-gradient(135deg,#eff6ff,#fff);
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 @media (min-width: 768px) {
-  .hero {
-    padding-top: 7rem;
-    padding-bottom: 4rem;
-  }
-}
-/* Glowing orb effect */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  .hero { padding-top: 7rem; padding-bottom: 4rem; }
 }
 .hero-badge {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
   font-size: 0.75rem;
-  font-weight: 500;
-  background: var(--bg-glass);
-  backdrop-filter: blur(8px);
-  padding: 0.5rem 1.5rem;
-  border-radius: 40px;
-  margin: 0 auto 1.5rem;
-  width: fit-content;
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 640px) {
+  .hero-badge { gap: 1.5rem; font-size: 0.875rem; }
 }
 .hero h1 {
   font-size: 1.75rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff, #a0c0ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #0f172a;
   max-width: 900px;
   margin: 0 auto;
+  line-height: 1.2;
 }
 @media (min-width: 640px) {
   .hero h1 { font-size: 2.5rem; }
 }
 @media (min-width: 1024px) {
-  .hero h1 { font-size: 3.2rem; }
+  .hero h1 { font-size: 3.5rem; }
 }
 .hero-sub {
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: #4b5563;
   margin-top: 1rem;
+  padding: 0 0.5rem;
+}
+@media (min-width: 768px) {
+  .hero-sub { font-size: 1.125rem; }
 }
 .hero-accred {
-  color: var(--accent);
-  font-weight: 700;
-  margin-top: 0.75rem;
+  color: #077ffb;
+  font-weight: 600;
+  margin-top: 0.5rem;
   font-size: 0.9rem;
 }
 .btn-enroll {
-  background: linear-gradient(95deg, var(--accent), #2563eb);
+  background-color: #077ffb;
   color: white;
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 1.5rem;
   border: none;
-  border-radius: 50px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
   font-weight: 700;
   margin-top: 1.5rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 14px rgba(7,127,251,0.3);
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 8px 20px var(--accent-glow);
 }
-.btn-enroll:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px var(--accent-glow);
+@media (min-width: 768px) {
+  .btn-enroll { padding: 0.75rem 2rem; font-size: 1rem; margin-top: 2rem; }
 }
 .stats-row {
   display: flex;
@@ -90,43 +71,257 @@
   gap: 1rem;
   margin-top: 2rem;
 }
-.stat-item {
-  background: var(--bg-glass);
-  backdrop-filter: blur(8px);
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  min-width: 100px;
-  border: 1px solid var(--border);
+/* Mobile specific - hide extra stats and university logos */
+@media (max-width: 640px) {
+  .stats-row .stat-item:nth-child(3),
+   .hero {
+    background: #eff6ff; /* solid color instead of gradient */
+  }
+  .stats-row .stat-item:nth-child(4) {
+    display: none;
+  }
+  .university-logos {
+    display: none;
+  }
+  .hero-badge span {
+    font-size: 0.7rem;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .btn-enroll {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
 }
 .stat-number {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--accent);
+  color: #077ffb;
+  display: block;
+}
+@media (min-width: 768px) {
+  .stat-number { font-size: 2rem; }
 }
 .stat-label {
   font-size: 0.7rem;
-  color: var(--text-secondary);
+  color: #4b5563;
+}
+@media (min-width: 768px) {
+  .stat-label { font-size: 0.875rem; }
 }
 .university-logos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.8rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: #6b7280;
+  opacity: 0.8;
   font-size: 0.75rem;
-  color: var(--text-muted);
 }
-.university-logos span {
-  background: var(--bg-glass);
-  backdrop-filter: blur(4px);
-  padding: 0.25rem 1rem;
-  border-radius: 40px;
-  border: 1px solid var(--border);
+@media (min-width: 640px) {
+  .university-logos { gap: 1.5rem; font-size: 0.875rem; margin-top: 2rem; }
+}
+.hero-secondary {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 200px;
+}
+.hero {
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e6f0fa 100%);
+  text-align: center;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+}
+/* Subtle abstract shape behind hero (optional, lightweight) */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(7,127,251,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 @media (max-width: 640px) {
-  .university-logos span:nth-child(n+5),
+  .hero::before {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.hero-badge {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #1e40af;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+  display: inline-flex;
+  margin: 0 auto 1.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 40px;
+  width: fit-content;
+}
+@media (min-width: 640px) {
+  .hero-badge {
+    font-size: 0.875rem;
+    gap: 1.5rem;
+  }
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+@media (min-width: 640px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: #2c3e66;
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+}
+@media (min-width: 768px) {
+  .hero-sub {
+    font-size: 1.125rem;
+  }
+}
+
+.hero-accred {
+  color: #077ffb;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  letter-spacing: -0.2px;
+}
+
+.btn-enroll {
+  background: linear-gradient(95deg, #077ffb 0%, #1e5fd9 100%);
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px rgba(7, 127, 251, 0.25);
+}
+.btn-enroll:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(7, 127, 251, 0.35);
+}
+
+/* Stats row – clean */
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+@media (min-width: 640px) {
+  .stats-row {
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+}
+.stat-item {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(4px);
+  padding: 0.75rem 1.25rem;
+  border-radius: 2rem;
+  min-width: 100px;
+}
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #077ffb;
+  display: block;
+}
+.stat-label {
+  font-size: 0.7rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* University logos – modern pill design */
+.university-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: #1e40af;
+  font-size: 0.75rem;
+}
+.university-logos span {
+  background: white;
+  padding: 0.25rem 1rem;
+  border-radius: 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+@media (min-width: 640px) {
+  .university-logos {
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+}
+/* Hide extra logos on mobile (performance + clean look) */
+@media (max-width: 640px) {
+  .university-logos span:nth-child(n+5) {
+    display: none;
+  }
   .stats-row .stat-item:nth-child(3),
   .stats-row .stat-item:nth-child(4) {
     display: none;
   }
+}
+.hero {
+  background: linear-gradient(135deg, var(--hero-gradient-start), var(--hero-gradient-end));
+}
+.hero-badge {
+  background: var(--badge-bg);
+  backdrop-filter: blur(4px);
+}
+.stat-item {
+  background: var(--badge-bg);
+}
+.university-logos span {
+  background: var(--card-bg);
+  color: var(--text-secondary);
 }
