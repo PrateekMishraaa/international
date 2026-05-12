@@ -11,7 +11,7 @@ const plans = [
 const LearningPlans = () => (
   <section className="learning-plans">
     <div className="container">
-      <h2>Choose the Learning Plan That Fits Your Child</h2>
+      <h2>Choose the Learning Plan That Fits Your Chil</h2>
       <div className="plans-grid">
         {plans.map((plan,i)=>(
           <div key={i} className="plan-card">

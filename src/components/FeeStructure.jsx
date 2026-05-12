@@ -11,42 +11,124 @@ const FeeStructure = () => {
     { grade: "Middle School", aed: "AED 8,263", usd: "$2,250 USD" },
     { grade: "High School", aed: "AED 12,119", usd: "$3,300 USD" },
   ];
+
+  // Inline style objects
+  const sectionStyle = {
+    padding: "4rem 0",
+    background: "rgba(15, 15, 42, 0.3)",
+    backdropFilter: "blur(8px)",
+  };
+
+  const containerStyle = {
+    maxWidth: "1280px",
+    margin: "0 auto",
+    padding: "0 1rem",
+  };
+
+  const headingStyle = {
+    fontSize: "2rem",
+    fontWeight: 700,
+    textAlign: "center",
+    background: "linear-gradient(135deg, #ffffff, #a0c0ff)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+    marginBottom: "2rem",
+  };
+
+  const gridStyle = {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "1.5rem",
+  };
+
+  const cardStyle = {
+    background: "rgba(20,20,45,0.7)",
+    backdropFilter: "blur(8px)",
+    borderRadius: "1rem",
+    padding: "1.5rem",
+    border: "1px solid rgba(255,255,255,0.1)",
+  };
+
+  const cardTitleStyle = {
+    fontSize: "1.5rem",
+    fontWeight: 700,
+    textAlign: "center",
+    marginBottom: "1rem",
+    color: "#3b82f6",
+  };
+
+  const tableRowStyle = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "0.75rem 0",
+    borderBottom: "1px solid rgba(255,255,255,0.1)",
+  };
+
+  const gradeStyle = {
+    fontWeight: 600,
+    color: "#ffffff",
+  };
+
+  const aedStyle = {
+    color: "#cbd5e1",
+  };
+
+  const usdStyle = {
+    color: "#94a3b8",
+    fontSize: "0.8rem",
+  };
+
+  const noteStyle = {
+    fontSize: "0.7rem",
+    color: "#94a3b8",
+    textAlign: "center",
+    marginTop: "1.5rem",
+  };
+
   return (
-    <div className="py-16 bg-gray-800/30">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          Fee Structure
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <h3 className="text-2xl font-bold text-center mb-6 text-blue-400">One-to-One Learning</h3>
-            <div className="space-y-4">
+    <section style={sectionStyle}>
+      <div style={containerStyle}>
+        <h2 style={headingStyle}>Fee Structure</h2>
+        <div style={gridStyle}>
+          {/* One-to-One Learning Card */}
+          <div style={cardStyle}>
+            <h3 style={cardTitleStyle}>One-to-One Learning</h3>
+            <div>
               {oneToOne.map((item, i) => (
-                <div key={i} className="flex justify-between items-center py-3 border-b border-white/10">
-                  <span className="font-semibold">{item.grade}</span>
-                  <span className="text-gray-300">{item.aed}</span>
-                  <span className="text-gray-400 text-sm">{item.usd}</span>
+                <div key={i} style={tableRowStyle}>
+                  <span style={gradeStyle}>{item.grade}</span>
+                  <span style={aedStyle}>{item.aed}</span>
+                  <span style={usdStyle}>{item.usd}</span>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-gray-400 text-center mt-6">Final fees may vary based on student requirements and enrollment plan.</p>
+            <p style={noteStyle}>
+              Final fees may vary based on student requirements and enrollment plan.
+            </p>
           </div>
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <h3 className="text-2xl font-bold text-center mb-6 text-blue-400">Group Learning</h3>
-            <div className="space-y-4">
+
+          {/* Group Learning Card */}
+          <div style={cardStyle}>
+            <h3 style={cardTitleStyle}>Group Learning</h3>
+            <div>
               {group.map((item, i) => (
-                <div key={i} className="flex justify-between items-center py-3 border-b border-white/10">
-                  <span className="font-semibold">{item.grade}</span>
-                  <span className="text-gray-300">{item.aed}</span>
-                  <span className="text-gray-400 text-sm">{item.usd}</span>
+                <div key={i} style={tableRowStyle}>
+                  <span style={gradeStyle}>{item.grade}</span>
+                  <span style={aedStyle}>{item.aed}</span>
+                  <span style={usdStyle}>{item.usd}</span>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-gray-400 text-center mt-6">Final fees may vary based on student requirements and enrollment plan.</p>
+            <p style={noteStyle}>
+              Final fees may vary based on student requirements and enrollment plan.
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
+
 export default FeeStructure;
