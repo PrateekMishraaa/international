@@ -29,7 +29,7 @@
 }
 
 .logo img {
-  width: 120px;        /* default / mobile */
+  width: 80px;        /* default / mobile */
   height: auto;
   display: block;
 }
@@ -37,7 +37,7 @@
 /* Desktop logo size */
 @media (min-width: 768px) {
   .logo img {
-    width: 140px;      /* reduced from ~200px */
+    width: 100px;      /* reduced from ~200px */
   }
 }
 

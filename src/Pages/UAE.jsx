@@ -11,7 +11,7 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// Lazy load non-critical sections
+// Lazy load non-critical sections (these components keep their own styling)
 const DemoBooking = lazy(() => import("../components/DemoBooking"));
 const WhyChoose = lazy(() => import("../components/WhyChoose"));
 const LearningPrograms = lazy(() => import("../components/LearningPrograms"));
@@ -21,20 +21,14 @@ const EnrollmentSteps = lazy(() => import("../components/EnrollmentSteps"));
 const FAQ = lazy(() => import("../components/FAQ"));
 
 const UAE = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
   const stats = [
-    { icon: <Users className="w-8 h-8" />, value: "2,500+", label: "Students from UAE" },
-    { icon: <Globe className="w-8 h-8" />, value: "600+", label: "Certified Teachers" },
-    { icon: <BookOpen className="w-8 h-8" />, value: "500+", label: "Course Options" },
-    { icon: <Calendar className="w-8 h-8" />, value: "11+", label: "Years of Trust" },
+    { icon: <Users size={28} />, value: "2,500+", label: "Students from UAE" },
+    { icon: <Globe size={28} />, value: "600+", label: "Certified Teachers" },
+    { icon: <BookOpen size={28} />, value: "500+", label: "Course Options" },
+    { icon: <Calendar size={28} />, value: "11+", label: "Years of Trust" },
   ];
-  const logos = [
-    { name: "NEASC", bg: "from-blue-600 to-blue-800" },
-    { name: "WASC", bg: "from-purple-600 to-purple-800" },
-    { name: "Cognia", bg: "from-emerald-600 to-emerald-800" },
-    { name: "College Board", bg: "from-rose-600 to-rose-800" },
-    { name: "NCAA", bg: "from-amber-600 to-amber-800" },
-  ];
+  const logos = ["NEASC", "WASC", "Cognia", "College Board", "NCAA"];
   const reviews = [
     { quote: "International Schooling provided my child with a seamless and high-quality education.", name: "Parent From Colombia, Living in UAE" },
     { quote: "The flexibility and support have been amazing for our family.", name: "Parent From Malaysia, Living in UAE" },
@@ -47,96 +41,231 @@ const UAE = () => {
     { q: "What grades do you offer?", a: "We offer a full KG-12 American curriculum." },
     { q: "How do students socialize?", a: "Through live classes, group projects, clubs, and online activities." },
   ];
-  const [openFaq, setOpenFaq] = useState(null);
+
+  // Inline style objects
+  const pageStyle = {
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #0a0a1a 0%, #0f0f2a 100%)",
+    color: "#ffffff",
+    fontFamily: "'Inter', system-ui, sans-serif",
+  };
+
+  const heroStyle = {
+    position: "relative",
+    background: "linear-gradient(135deg, #1e3a8a, #312e81, #4c1d95)",
+    padding: "6rem 0 4rem",
+    textAlign: "center",
+    overflow: "hidden",
+  };
+
+  const containerStyle = {
+    maxWidth: "1280px",
+    margin: "0 auto",
+    padding: "0 1rem",
+  };
+
+  const statsContainerStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: "1.5rem",
+    margin: "2rem 0",
+  };
+
+  const statCardStyle = {
+    background: "rgba(255,255,255,0.05)",
+    backdropFilter: "blur(8px)",
+    borderRadius: "1rem",
+    padding: "1rem 1.5rem",
+    minWidth: "130px",
+    textAlign: "center",
+    border: "1px solid rgba(255,255,255,0.1)",
+    transition: "transform 0.2s",
+  };
+
+  const statValueStyle = {
+    fontSize: "2rem",
+    fontWeight: 800,
+    background: "linear-gradient(135deg, #ffffff, #a0c0ff)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+    display: "block",
+  };
+
+  const statLabelStyle = {
+    fontSize: "0.75rem",
+    color: "#b0b0d0",
+    textTransform: "uppercase",
+    letterSpacing: "0.5px",
+  };
+
+  const buttonStyle = {
+    background: "linear-gradient(95deg, #3b82f6, #2563eb)",
+    border: "none",
+    padding: "0.75rem 2rem",
+    borderRadius: "50px",
+    fontWeight: 700,
+    fontSize: "1rem",
+    color: "white",
+    cursor: "pointer",
+    transition: "all 0.2s",
+    boxShadow: "0 4px 14px rgba(59,130,246,0.3)",
+    margin: "1rem 0",
+  };
+
+  const sectionStyle = {
+    padding: "3rem 0",
+    textAlign: "center",
+  };
+
+  const sectionAltStyle = {
+    ...sectionStyle,
+    background: "rgba(15, 15, 42, 0.5)",
+    backdropFilter: "blur(8px)",
+  };
+
+  const headingStyle = {
+    fontSize: "2rem",
+    fontWeight: 700,
+    background: "linear-gradient(135deg, #ffffff, #a0c0ff)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+    marginBottom: "2rem",
+  };
+
+  const logosContainerStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: "1rem",
+  };
+
+  const logoSpanStyle = {
+    background: "linear-gradient(135deg, #1e3a8a, #312e81)",
+    padding: "0.5rem 1.25rem",
+    borderRadius: "40px",
+    fontWeight: 600,
+    fontSize: "0.9rem",
+    color: "white",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+  };
+
+  const reviewGridStyle = {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "1.5rem",
+  };
+
+  const reviewCardStyle = {
+    background: "rgba(20,20,45,0.7)",
+    backdropFilter: "blur(8px)",
+    borderRadius: "1rem",
+    padding: "1.5rem",
+    border: "1px solid rgba(255,255,255,0.1)",
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div style={pageStyle}>
       <Navbar />
-      <main className="pt-20">
-        <div className="relative bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-          <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
-            <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <main style={{ paddingTop: "5rem" }}>
+        {/* Hero Section */}
+        <div style={heroStyle}>
+          <div style={containerStyle}>
+            <div style={{ position: "relative", zIndex: 2 }}>
+              <h1 style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: "1rem", background: "linear-gradient(135deg, #ffffff, #a0c0ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                 Most Trusted & Recommended Online School in UAE
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-8">
+              <p style={{ fontSize: "1.2rem", color: "#e0e0ff", marginBottom: "2rem" }}>
                 Trusted by families in the UAE since 2014 | 2,000+ UAE families
               </p>
-              <div className="flex flex-wrap justify-center gap-8 mb-12">
+              <div style={statsContainerStyle}>
                 {stats.map((stat, i) => (
-                  <div key={i} className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm mb-3">
+                  <div key={i} style={statCardStyle}>
+                    <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "64px", height: "64px", borderRadius: "50%", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(4px)", marginBottom: "0.5rem" }}>
                       {stat.icon}
                     </div>
-                    <div className="text-2xl md:text-3xl font-bold">{stat.value}</div>
-                    <div className="text-sm text-gray-300">{stat.label}</div>
+                    <span style={statValueStyle}>{stat.value}</span>
+                    <span style={statLabelStyle}>{stat.label}</span>
                   </div>
                 ))}
               </div>
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                Get Free School Demo
-              </button>
+              <button style={buttonStyle}>Get Free School Demo</button>
             </div>
           </div>
         </div>
-        <div className="py-16 bg-gray-800/50 backdrop-blur-sm">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Fully Accredited By
-            </h2>
-            <div className="flex flex-wrap justify-center gap-6">
+
+        {/* Accreditation Section */}
+        <div style={sectionAltStyle}>
+          <div style={containerStyle}>
+            <h2 style={headingStyle}>Fully Accredited By</h2>
+            <div style={logosContainerStyle}>
               {logos.map((logo, i) => (
-                <div key={i} className={`bg-gradient-to-r ${logo.bg} px-6 py-3 rounded-full font-semibold text-white shadow-lg`}>
-                  {logo.name}
-                </div>
+                <span key={i} style={logoSpanStyle}>{logo}</span>
               ))}
             </div>
-            <p className="text-center text-gray-300 mt-8 max-w-3xl mx-auto">
+            <p style={{ maxWidth: "800px", margin: "2rem auto 0", color: "#cbd5e1" }}>
               International Schooling, since 2014, is the most trusted international online school
               in Dubai & UAE, offering American Curriculum, accredited by NEASC, WASC, and Cognia.
             </p>
           </div>
         </div>
-        <div className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Satisfied and Happy Parents
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+
+        {/* Reviews */}
+        <div style={sectionStyle}>
+          <div style={containerStyle}>
+            <h2 style={headingStyle}>Satisfied and Happy Parents</h2>
+            <div style={reviewGridStyle}>
               {reviews.map((review, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                  <Star className="w-8 h-8 text-yellow-400 mb-4" />
-                  <p className="text-gray-300 italic mb-4">"{review.quote}"</p>
-                  <p className="font-semibold text-blue-400">— {review.name}</p>
+                <div key={i} style={reviewCardStyle}>
+                  <Star style={{ color: "#fbbf24", marginBottom: "0.75rem" }} size={32} />
+                  <p style={{ fontStyle: "italic", color: "#e0e0ff", marginBottom: "1rem" }}>"{review.quote}"</p>
+                  <p style={{ fontWeight: 700, color: "#3b82f6" }}>— {review.name}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <Suspense fallback={<div className="text-center py-8">Loading sections...</div>}>
+
+        {/* Lazy sections */}
+        <Suspense fallback={<div style={{ textAlign: "center", padding: "2rem" }}>Loading...</div>}>
           <DemoBooking />
           <WhyChoose />
           <LearningPrograms />
           <Benefits />
           <FeeStructure />
           <EnrollmentSteps />
-          <div className="py-16 bg-gray-800/50">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Frequently Asked Questions
-              </h2>
-              <div className="max-w-3xl mx-auto space-y-4">
+
+          {/* FAQ Section */}
+          <div style={sectionAltStyle}>
+            <div style={containerStyle}>
+              <h2 style={headingStyle}>Frequently Asked Questions</h2>
+              <div style={{ maxWidth: "800px", margin: "0 auto" }}>
                 {faqs.map((faq, i) => (
-                  <div key={i} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden">
+                  <div key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      className="w-full px-6 py-4 text-left font-semibold flex justify-between items-center hover:bg-white/10 transition-colors"
+                      style={{
+                        width: "100%",
+                        textAlign: "left",
+                        background: "none",
+                        border: "none",
+                        padding: "1rem 0",
+                        fontSize: "1rem",
+                        fontWeight: 600,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        cursor: "pointer",
+                        color: "#ffffff",
+                      }}
                     >
                       {faq.q}
-                      <ChevronDown className={`w-5 h-5 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
+                      <ChevronDown size={20} style={{ transform: openFaq === i ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
                     </button>
                     {openFaq === i && (
-                      <div className="px-6 pb-4 text-gray-300 border-t border-white/10 pt-3">
+                      <div style={{ paddingBottom: "1rem", color: "#cbd5e1" }}>
                         {faq.a}
                       </div>
                     )}
